@@ -11,6 +11,10 @@ IMG_SIZE = 160
 X_test, y_test = load_testing_data()
 
 
+# Load server address and port number from command-line arguments
+server_address = "192.168.1.41" #sys.argv[2]
+port_number = "9002" #int(sys.argv[3])
+
 # Define evaluation function
 def evaluate(weights):
     model = create_model()  # Create a new model instance
@@ -59,4 +63,4 @@ if __name__ == '__main__':
     config = ServerConfig(num_rounds=10)
 
     # Start the server with the correct parameters
-    fl.server.start_server(server_address="localhost:8080", strategy=strategy, config=config)
+    fl.server.start_server(server_address=f"{server_address}:{port_number}", strategy=strategy, config=config)
