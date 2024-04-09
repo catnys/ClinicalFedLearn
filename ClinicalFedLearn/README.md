@@ -48,13 +48,4 @@ The Federated Learning process will only begin once all 4 clients are connected.
 
 After a brief pause, the server should start sampling the clients, who will each be training Machine Learning models!
 
-## Running the code (Machine Learning)
-
-All the code for our individual Machine Learning Models is located in the Jupyter Notebook: mri_classification.ipynb
-
-
-## Authors
-- Coral, G
-- Hait, J
-- Isaak, K
-- Watkins, A
+To get more information about this project. Please check paper written by Coral et. al.  
