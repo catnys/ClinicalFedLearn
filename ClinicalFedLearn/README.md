@@ -49,4 +49,5 @@ python3 client.py 3
 ## Notes
 - Ensure that the data directory (`./data/`) contains the necessary MRI images for training and testing.
 
-To get more information about this projectplease check paper written by Coral et. al.  
+## References
+Coral, G., Hait, J., Isaak, K., & Watkins, A. (n.d.). KyleIsaak/Federated_Medical_Machine_Learning: This is a machine learning model created for CMPT 340 (Biomedical computing) at Simon Fraser University. It trains a classifier using MRI scans at different medical facilities and then returns the trained data back to a central server without needing to send or compromise patient data. GitHub. https://github.com/KyleIsaak/Federated_Medical_Machine_Learning/tree/main
