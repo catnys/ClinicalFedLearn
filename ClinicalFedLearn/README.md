@@ -1,22 +1,7 @@
 # Federated Learning in the Clinical Environment
 
-In recent years, the desire to keep one's data private and secure has become highly sought 
-after in our society. One aspect of this is the privacy of medical data. While patient data 
-can be used by Artificial Intelligence (AI) and Machine Learning (ML) models to better understand, 
-diagnose, and treat diseases, stricter access to patient data adds an additional layer of 
-complexity to using these techniques. 
-
-Federated Learning (FL) is a technique that allows patient data to remain private, 
-while still using that data to build and improve ML models. This project explores and 
-implements a proof of concept of FL, which could then be adapted to a clinical 
-environment to build ML models to help improve patient care. Specifically we used 
-MRI images of brains with 4 different classifications of tumors. We used Tensorflow 
-framework to create our ML models and we used Flower framework for the FL methods. 
-Our FL model accuracy results were within 10\% of our centralized model results, 
-although in a realistic strict data privacy environment there was an improvement. 
-Our results show that there is definitely value in exploring FL methods, as we have 
-room for improvement and other research applied to the current pandemic shows the possible 
-efficacy of FL in a clinical environment.
+## Introduction
+This project explores and implements Federated Learning (FL) techniques in the clinical environment. Federated Learning allows for the training of machine learning models while keeping patient data private, making it suitable for medical applications where data privacy is critical. Specifically, this project focuses on using FL to build and improve machine learning models for classifying MRI images of brains with different tumor types.
 
 
 ## Installation
@@ -43,9 +28,25 @@ python3 client.py 1
 python3 client.py 2
 python3 client.py 3
 ```
+(Replace `0`, `1`, `2`, `3` with the appropriate client indices.)
+4. The federated learning process will begin once all four clients are connected.
 
-The Federated Learning process will only begin once all 4 clients are connected.
+### Machine Learning
+1. All code for individual machine learning models is located in the Jupyter Notebook `mri_classification.ipynb`.
 
-After a brief pause, the server should start sampling the clients, who will each be training Machine Learning models!
+## Project Structure
+- `server.py`: Contains the central server code for federated learning.
+- `client.py`: Contains the client code for federated learning.
+- `utils.py`: Contains utility functions for data loading and preprocessing.
+- `mri_classification.ipynb`: Jupyter Notebook containing code for individual machine learning models.
+- `requirements.txt`: Text file listing required Python packages.
 
-To get more information about this project. Please check paper written by Coral et. al.  
+## Usage
+- The `server.py` script starts the central server for federated learning.
+- The `client.py` script runs individual clients for federated learning. Run multiple instances of `client.py` with different indices to simulate multiple clients.
+- The `mri_classification.ipynb` notebook contains code for training and evaluating individual machine learning models.
+
+## Notes
+- Ensure that the data directory (`./data/`) contains the necessary MRI images for training and testing.
+
+To get more information about this projectplease check paper written by Coral et. al.  
