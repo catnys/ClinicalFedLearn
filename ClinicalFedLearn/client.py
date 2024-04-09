@@ -10,7 +10,17 @@ from utils import load_partition
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 IMG_SIZE = 160
-DEFAULT_SERVER_ADDRESS = "[::]:8080"
+#DEFAULT_SERVER_ADDRESS = "[::]:8080"
+
+# Unique client identifier
+client_id = int(sys.argv[1])  # Assuming client index is provided as an argument
+
+# Load server address and port number from command-line arguments
+server_address = "192.168.1.41" #sys.argv[2]
+port_number = "9002" #int(sys.argv[3])
+
+# Example usage
+# python3 client.py 0 SERVER_IP_ADDRESS 8080
 
 model = ks.Sequential([
     ks.layers.Flatten(input_shape=(IMG_SIZE, IMG_SIZE)),
@@ -54,4 +64,4 @@ class FederatedClient(NumPyClient):
         return loss, len(X_val), {"accuracy": accuracy}
 
 if __name__ == '__main__':
-    start_numpy_client(server_address="localhost:8080", client=FederatedClient())
+    start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
