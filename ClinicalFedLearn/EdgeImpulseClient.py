@@ -37,7 +37,7 @@ class EdgeImpulseClient:
 # Example usage:
 if __name__ == '__main__':
     # Initialize Edge Impulse client
-    edge_impulse_client = EdgeImpulseClient(api_key="YOUR_EDGE_IMPULSE_API_KEY")
+    edge_impulse_client = EdgeImpulseClient(api_key="ei_14a485f9272075df56cc980aa5288fdf02655badbf746489e05ed7aed4d446cc")
 
     # Load and train your model
     model = create_model()
