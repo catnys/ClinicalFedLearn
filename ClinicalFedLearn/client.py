@@ -16,8 +16,8 @@ IMG_SIZE = 160
 client_id = int(sys.argv[1])  # Assuming client index is provided as an argument
 
 # Load server address and port number from command-line arguments
-server_address = "192.168.1.41" #sys.argv[2]
-port_number = "9002" #int(sys.argv[3])
+server_address = "127.0.0.1" #sys.argv[2]
+port_number = "8080" #int(sys.argv[3])
 
 # Example usage
 # python3 client.py 0 SERVER_IP_ADDRESS 8080

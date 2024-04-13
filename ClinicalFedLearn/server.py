@@ -4,7 +4,7 @@ from flwr.server import ServerConfig
 
 from utils import load_testing_data
 
-DEFAULT_SERVER_ADDRESS = "[::]:8080"
+#DEFAULT_SERVER_ADDRESS = "[::]:8080"
 IMG_SIZE = 160
 
 # Load testing data
@@ -12,8 +12,8 @@ X_test, y_test = load_testing_data()
 
 
 # Load server address and port number from command-line arguments
-server_address = "192.168.1.41" #sys.argv[2]
-port_number = "9002" #int(sys.argv[3])
+server_address = "0.0.0.0" #sys.argv[2]
+port_number = "8080" #int(sys.argv[3])
 
 # Define evaluation function
 def evaluate(weights):
