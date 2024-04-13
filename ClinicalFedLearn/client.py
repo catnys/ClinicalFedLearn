@@ -72,10 +72,18 @@ class FederatedClient(NumPyClient):
         return loss, len(X_val), {"accuracy": accuracy}
 
     def show_test_samples(self):
-        # Get test samples
-        test_indices = np.random.choice(len(X_test), size=4, replace=False)
-        test_images = X_test[test_indices]
-        test_labels = y_test[test_indices]
+        # Create a dictionary to store the first occurrence of each class label
+        first_occurrence = {}
+
+        # Find the index of the first occurrence of each class label
+        for class_label in range(len(labels)):
+            indices = np.where(y_test == class_label)[0]
+            if len(indices) > 0:
+                first_occurrence[class_label] = indices[0]
+
+        # Get the first images of each class label
+        test_images = X_test[list(first_occurrence.values())]
+        test_labels = y_test[list(first_occurrence.values())]
 
         # Predict labels for test samples
         predicted_labels = model.predict(test_images)
@@ -85,13 +93,17 @@ class FederatedClient(NumPyClient):
         predicted_probs = model.predict(test_images)
 
         # Display test samples with true and predicted labels
-        plt.figure(figsize=(10, 10))
-        for i in range(4):
-            plt.subplot(2, 2, i + 1)
+        plt.figure(figsize=(12, 8))
+        for i in range(len(first_occurrence)):
+            plt.subplot(2, 3, i + 1)  # Assuming there are 6 classes, adjust accordingly
             plt.imshow(test_images[i], cmap='gray')
+            true_label = labels[test_labels[i]]
+            predicted_label = labels[predicted_labels[i]]
+            accuracy = predicted_probs[i][predicted_labels[i]]
             plt.title(
-                f"True Label: {labels[test_labels[i]]}\nPredicted Label: {labels[predicted_labels[i]]}\nAccuracy: {predicted_probs[i][predicted_labels[i]]:.2f}")
+                f"True Label: {true_label}\nPredicted Label: {predicted_label}\nAccuracy: {accuracy:.2f}")
             plt.axis('off')
+        plt.tight_layout()
         plt.show()
 
 
