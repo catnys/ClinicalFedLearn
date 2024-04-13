@@ -1,16 +1,16 @@
 import os
 import sys
-
+import numpy as np
+import matplotlib.pyplot as plt
 from flwr.client import start_numpy_client, NumPyClient
 import keras as ks
 
-from utils import load_partition
+from utils import load_partition, load_testing_data, get_labels
 
 # Make TensorFlow log less verbose
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 IMG_SIZE = 160
-# DEFAULT_SERVER_ADDRESS = "[::]:8080"
 
 # Unique client identifier
 client_id = int(sys.argv[1])  # Assuming client index is provided as an argument
@@ -40,7 +40,14 @@ else:
     print("Not enough arguments... expecting python3 client.py PARTITION_NUMBER; where partition number is 0, 1, 2, 3")
     sys.exit()
 
+# Load testing data
+X_test, y_test = load_testing_data()
 
+# Get labels
+labels = get_labels()
+
+
+# Class to handle federated client
 class FederatedClient(NumPyClient):
     def get_parameters(self, config):
         return model.get_weights()
@@ -64,6 +71,44 @@ class FederatedClient(NumPyClient):
         print("****** CLIENT ACCURACY: ", accuracy, " ******")
         return loss, len(X_val), {"accuracy": accuracy}
 
+    def show_test_samples(self):
+        # Create a dictionary to store the first occurrence of each class label
+        first_occurrence = {}
 
+        # Find the index of the first occurrence of each class label
+        for class_label in range(len(labels)):
+            indices = np.where(y_test == class_label)[0]
+            if len(indices) > 0:
+                first_occurrence[class_label] = indices[0]
+
+        # Get the first images of each class label
+        test_images = X_test[list(first_occurrence.values())]
+        test_labels = y_test[list(first_occurrence.values())]
+
+        # Predict labels for test samples
+        predicted_labels = model.predict(test_images)
+        predicted_labels = np.argmax(predicted_labels, axis=1)
+
+        # Get the predicted probabilities for each class
+        predicted_probs = model.predict(test_images)
+
+        # Display test samples with true and predicted labels
+        plt.figure(figsize=(12, 8))
+        for i in range(len(first_occurrence)):
+            plt.subplot(2, 3, i + 1)  # Assuming there are 6 classes, adjust accordingly
+            plt.imshow(test_images[i], cmap='gray')
+            true_label = labels[test_labels[i]]
+            predicted_label = labels[predicted_labels[i]]
+            accuracy = predicted_probs[i][predicted_labels[i]]
+            plt.title(
+                f"True Label: {true_label}\nPredicted Label: {predicted_label}\nAccuracy: {accuracy:.2f}")
+            plt.axis('off')
+        plt.tight_layout()
+        plt.show()
+
+
+# Start the federated client
 if __name__ == '__main__':
-    start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
+    client = FederatedClient()
+    client.show_test_samples()
+    start_numpy_client(server_address=f"{server_address}:{port_number}", client=client)
