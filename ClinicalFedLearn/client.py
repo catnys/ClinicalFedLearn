@@ -46,6 +46,7 @@ X_test, y_test = load_testing_data()
 # Get labels
 labels = get_labels()
 
+
 # Class to handle federated client
 class FederatedClient(NumPyClient):
     def get_parameters(self, config):
@@ -80,14 +81,19 @@ class FederatedClient(NumPyClient):
         predicted_labels = model.predict(test_images)
         predicted_labels = np.argmax(predicted_labels, axis=1)
 
-        # Display test samples with predicted labels
+        # Get the predicted probabilities for each class
+        predicted_probs = model.predict_proba(test_images)
+
+        # Display test samples with true and predicted labels
         plt.figure(figsize=(10, 10))
         for i in range(4):
             plt.subplot(2, 2, i + 1)
             plt.imshow(test_images[i], cmap='gray')
-            plt.title(f"True Label: {labels[test_labels[i]]}\nPredicted Label: {labels[predicted_labels[i]]}")
+            plt.title(
+                f"True Label: {labels[test_labels[i]]}\nPredicted Label: {labels[predicted_labels[i]]}\nAccuracy: {predicted_probs[i][predicted_labels[i]]:.2f}")
             plt.axis('off')
         plt.show()
+
 
 # Start the federated client
 if __name__ == '__main__':
