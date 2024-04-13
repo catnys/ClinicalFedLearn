@@ -42,7 +42,7 @@ def create_model():
 # Define strategy
 strategy = fl.server.strategy.FedAvg(
     fraction_fit=0.75,  # what percentage of clients we sample from in the next round
-    min_available_clients=4,  # wait for 4 clients to connect before starting
+    min_available_clients=2,  # wait for at least 2 clients to connect before starting
 )
 
 
