@@ -10,14 +10,14 @@ from utils import load_partition
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 IMG_SIZE = 160
-#DEFAULT_SERVER_ADDRESS = "[::]:8080"
+# DEFAULT_SERVER_ADDRESS = "[::]:8080"
 
 # Unique client identifier
 client_id = int(sys.argv[1])  # Assuming client index is provided as an argument
 
 # Load server address and port number from command-line arguments
-server_address = "127.0.0.1" #sys.argv[2]
-port_number = "8080" #int(sys.argv[3])
+server_address = "127.0.0.1"  # sys.argv[2]
+port_number = "8080"  # int(sys.argv[3])
 
 # Example usage
 # python3 client.py 0 SERVER_IP_ADDRESS 8080
@@ -39,6 +39,7 @@ if len(sys.argv) > 1:
 else:
     print("Not enough arguments... expecting python3 client.py PARTITION_NUMBER; where partition number is 0, 1, 2, 3")
     sys.exit()
+
 
 class FederatedClient(NumPyClient):
     def get_parameters(self, config):
@@ -62,6 +63,7 @@ class FederatedClient(NumPyClient):
         loss, accuracy = model.evaluate(X_val, y_val)
         print("****** CLIENT ACCURACY: ", accuracy, " ******")
         return loss, len(X_val), {"accuracy": accuracy}
+
 
 if __name__ == '__main__':
     start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
