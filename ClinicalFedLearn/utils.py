@@ -53,7 +53,7 @@ def load_training_data(val_size=0.2):
 
 
 def load_partition(index):
-    num_clients = 2
+    num_clients = 4
     part_size = 1 / num_clients
     X_train, X_val, y_train, y_val = load_training_data(0.2)
     return (
