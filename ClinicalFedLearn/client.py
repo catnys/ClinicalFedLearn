@@ -82,7 +82,7 @@ class FederatedClient(NumPyClient):
         predicted_labels = np.argmax(predicted_labels, axis=1)
 
         # Get the predicted probabilities for each class
-        predicted_probs = model.predict_proba(test_images)
+        predicted_probs = model.predict(test_images)
 
         # Display test samples with true and predicted labels
         plt.figure(figsize=(10, 10))
