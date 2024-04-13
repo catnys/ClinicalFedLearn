@@ -1,16 +1,16 @@
 import os
 import sys
-
+import numpy as np
+import matplotlib.pyplot as plt
 from flwr.client import start_numpy_client, NumPyClient
 import keras as ks
 
-from utils import load_partition
+from utils import load_partition, load_testing_data, get_labels
 
 # Make TensorFlow log less verbose
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 IMG_SIZE = 160
-# DEFAULT_SERVER_ADDRESS = "[::]:8080"
 
 # Unique client identifier
 client_id = int(sys.argv[1])  # Assuming client index is provided as an argument
@@ -40,7 +40,13 @@ else:
     print("Not enough arguments... expecting python3 client.py PARTITION_NUMBER; where partition number is 0, 1, 2, 3")
     sys.exit()
 
+# Load testing data
+X_test, y_test = load_testing_data()
 
+# Get labels
+labels = get_labels()
+
+# Class to handle federated client
 class FederatedClient(NumPyClient):
     def get_parameters(self, config):
         return model.get_weights()
@@ -64,6 +70,27 @@ class FederatedClient(NumPyClient):
         print("****** CLIENT ACCURACY: ", accuracy, " ******")
         return loss, len(X_val), {"accuracy": accuracy}
 
+    def show_test_samples(self):
+        # Get test samples
+        test_indices = np.random.choice(len(X_test), size=4, replace=False)
+        test_images = X_test[test_indices]
+        test_labels = y_test[test_indices]
 
+        # Predict labels for test samples
+        predicted_labels = model.predict(test_images)
+        predicted_labels = np.argmax(predicted_labels, axis=1)
+
+        # Display test samples with predicted labels
+        plt.figure(figsize=(10, 10))
+        for i in range(4):
+            plt.subplot(2, 2, i + 1)
+            plt.imshow(test_images[i], cmap='gray')
+            plt.title(f"True Label: {labels[test_labels[i]]}\nPredicted Label: {labels[predicted_labels[i]]}")
+            plt.axis('off')
+        plt.show()
+
+# Start the federated client
 if __name__ == '__main__':
-    start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
+    client = FederatedClient()
+    client.show_test_samples()
+    start_numpy_client(server_address=f"{server_address}:{port_number}", client=client)
