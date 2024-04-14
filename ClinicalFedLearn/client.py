@@ -25,7 +25,7 @@ port_number = "8080"  # int(sys.argv[3])
 model = ks.Sequential([
     ks.layers.Flatten(input_shape=(IMG_SIZE, IMG_SIZE)),
     ks.layers.Dense(128, activation='relu'),
-    ks.layers.Dense(4)
+    ks.layers.Dense(4, activation='softmax')
 ])
 
 model.compile(
@@ -49,10 +49,17 @@ labels = get_labels()
 
 # Class to handle federated client
 class FederatedClient(NumPyClient):
+    def __init__(self):
+        super().__init__()
+        self.pre_fl_predicted_probs = None
+        self.post_fl_predicted_probs = None
     def get_parameters(self, config):
         return model.get_weights()
 
     def fit(self, parameters, config):
+        # Store predicted probabilities before federated learning
+        self.pre_fl_predicted_probs = model.predict(X_val)
+
         model.set_weights(parameters)
         history = model.fit(X_train, y_train, epochs=100, batch_size=32, steps_per_epoch=5, validation_split=0.1)
 
@@ -62,6 +69,8 @@ class FederatedClient(NumPyClient):
             "val_loss": history.history["val_loss"][0],
             "val_accuracy": history.history["val_accuracy"][0],
         }
+        # Store predicted probabilities after federated learning
+        self.post_fl_predicted_probs = model.predict(X_val)
 
         return model.get_weights(), len(X_train), results
 
@@ -101,7 +110,32 @@ class FederatedClient(NumPyClient):
             predicted_label = labels[predicted_labels[i]]
             accuracy = predicted_probs[i][predicted_labels[i]]
             plt.title(
-                f"True Label: {true_label}\nPredicted Label: {predicted_label}\nAccuracy: {accuracy:.2f}")
+                f"Client {client_id}\nTrue Label: {true_label}\nPredicted Label: {predicted_label}\nAccuracy: {accuracy:.2f}")
+            plt.axis('off')
+        plt.tight_layout()
+        plt.show()
+
+    def compare_predictions(self):
+        if self.pre_fl_predicted_probs is None or self.post_fl_predicted_probs is None:
+            print("Predicted probabilities not available.")
+            return
+
+        # Select the same four images for comparison
+        indices = [0, 1, 2, 3]  # Adjust as needed
+
+        # Display the predictions for each image
+        plt.figure(figsize=(12, 8))
+        for i, idx in enumerate(indices):
+            plt.subplot(2, 2, i + 1)
+            test_sample = X_test[idx]
+            true_label = labels[y_test[idx]]  # Fetch the true label correctly
+            pre_fl_prob = self.pre_fl_predicted_probs[idx]
+            post_fl_prob = self.post_fl_predicted_probs[idx]
+            pre_fl_label = labels[np.argmax(pre_fl_prob)]
+            post_fl_label = labels[np.argmax(post_fl_prob)]
+            plt.imshow(test_sample, cmap='gray')
+            plt.title(
+                f"Client {client_id}\nTrue Label: {true_label}\nBefore FL: {pre_fl_label} ({pre_fl_prob.max():.2f})\nAfter FL: {post_fl_label} ({post_fl_prob.max():.2f})")
             plt.axis('off')
         plt.tight_layout()
         plt.show()
@@ -112,3 +146,4 @@ if __name__ == '__main__':
     client = FederatedClient()
     client.show_test_samples()
     start_numpy_client(server_address=f"{server_address}:{port_number}", client=client)
+    client.show_test_samples()
