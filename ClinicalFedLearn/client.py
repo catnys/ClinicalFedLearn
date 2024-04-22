@@ -23,11 +23,7 @@ port_number = "8080"  # int(sys.argv[3])
 # python3 client.py 0 SERVER_IP_ADDRESS 8080
 
 model = ks.Sequential([
-    ks.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(IMG_SIZE, IMG_SIZE, 1)),
-    ks.layers.MaxPooling2D((2, 2)),
-    ks.layers.Conv2D(64, (3, 3), activation='relu'),
-    ks.layers.MaxPooling2D((2, 2)),
-    ks.layers.Flatten(),
+    ks.layers.Flatten(input_shape=(IMG_SIZE, IMG_SIZE)),
     ks.layers.Dense(128, activation='relu'),
     ks.layers.Dense(4, activation='softmax')
 ])
