@@ -134,3 +134,119 @@ myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	      
 myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (9, 0.4695431590080261),
 myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (10, 0.3299492299556732)]}
 myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,317 | server.py:495 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:35,028 | app.py:150 | Starting Flower server, config: num_rounds=10, no round_timeout
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:35,058 | app.py:163 | Flower ECE: gRPC server running (10 rounds), SSL is disabled
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:35,059 | server.py:92 | [INIT]
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:35,059 | server.py:279 | Requesting initial parameters from one random client
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:42,277 | server.py:285 | Received initial parameters from one random client
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:42,277 | server.py:94 | Evaluating initial global parameters
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:42,702 | server.py:97 | initial parameters (loss, other metrics): 1.4079855680465698, {'accuracy': 0.2791878283023834}
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:42,702 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:42,703 | server.py:111 | [ROUND 1]
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:43,629 | server.py:224 | configure_fit: strategy sampled 2 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:50,828 | server.py:238 | aggregate_fit: received 2 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 23:15:50,844 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:51,269 | server.py:129 | fit progress: (1, 1.5475082397460938, {'accuracy': 0.2893401086330414}, 8.56623374999981)
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:51,269 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:51,521 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 23:15:51,521 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:51,521 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:51,521 | server.py:111 | [ROUND 2]
+myFlowerExperiment | INFO flwr 2024-04-23 23:15:51,521 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,374 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,761 | server.py:129 | fit progress: (2, 2.59144926071167, {'accuracy': 0.37055838108062744}, 19.058724792001158)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,761 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,907 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,907 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,907 | server.py:111 | [ROUND 3]
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:01,907 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:11,702 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:12,099 | server.py:129 | fit progress: (3, 2.5182886123657227, {'accuracy': 0.4314720928668976}, 29.397181958000147)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:12,099 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:12,254 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:12,254 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:12,254 | server.py:111 | [ROUND 4]
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:12,254 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,081 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,424 | server.py:129 | fit progress: (4, 2.945962429046631, {'accuracy': 0.44162437319755554}, 39.72195962499973)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,424 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,564 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,564 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,564 | server.py:111 | [ROUND 5]
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:22,564 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,445 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,833 | server.py:129 | fit progress: (5, 3.211954355239868, {'accuracy': 0.5329949259757996}, 50.13094075000117)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,833 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,990 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,990 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,990 | server.py:111 | [ROUND 6]
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:32,990 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:42,998 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:43,346 | server.py:129 | fit progress: (6, 3.440493106842041, {'accuracy': 0.5279187560081482}, 60.6445351250004)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:43,346 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:43,490 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:43,490 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:43,491 | server.py:111 | [ROUND 7]
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:43,491 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,514 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,836 | server.py:129 | fit progress: (7, 3.7421884536743164, {'accuracy': 0.5482233762741089}, 71.13447554199956)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,836 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,975 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,975 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,975 | server.py:111 | [ROUND 8]
+myFlowerExperiment | INFO flwr 2024-04-23 23:16:53,975 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,017 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,335 | server.py:129 | fit progress: (8, 4.187892436981201, {'accuracy': 0.5203045606613159}, 81.63327883300008)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,335 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,483 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,483 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,483 | server.py:111 | [ROUND 9]
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:04,483 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,451 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,824 | server.py:129 | fit progress: (9, 3.9987645149230957, {'accuracy': 0.5837563276290894}, 92.12333483300063)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,825 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,969 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,970 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,970 | server.py:111 | [ROUND 10]
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:14,970 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,020 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,409 | server.py:129 | fit progress: (10, 3.9801907539367676, {'accuracy': 0.5482233762741089}, 102.70801070800007)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,409 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,549 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,551 | server.py:487 | 
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:488 | [SUMMARY]
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:489 | Run finished 10 rounds in 102.85s
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:492 | History (loss, distributed):
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	('\tround 1: 1.3026192491478206\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 2: 1.2220680805033508\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 3: 0.91189764112961\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 4: 0.7120341555789788\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 5: 0.46608748523200433\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 6: 0.4588138115842168\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 7: 0.5075013501511219\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 8: 0.6045207813226388\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 9: 0.4601583425799313\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 10: 0.5940231194894904\n')History (loss, centralized):
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	('\tround 0: 1.4079855680465698\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,552 | server.py:494 | 	 '\tround 1: 1.5475082397460938\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 2: 2.59144926071167\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 3: 2.5182886123657227\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 4: 2.945962429046631\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 5: 3.211954355239868\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 6: 3.440493106842041\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 7: 3.7421884536743164\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 8: 4.187892436981201\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 9: 3.9987645149230957\n'
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	 '\tround 10: 3.9801907539367676\n')History (metrics, centralized):
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	{'accuracy': [(0, 0.2791878283023834),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (1, 0.2893401086330414),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (2, 0.37055838108062744),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (3, 0.4314720928668976),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (4, 0.44162437319755554),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (5, 0.5329949259757996),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (6, 0.5279187560081482),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (7, 0.5482233762741089),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (8, 0.5203045606613159),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (9, 0.5837563276290894),
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:494 | 	              (10, 0.5482233762741089)]}
+myFlowerExperiment | INFO flwr 2024-04-23 23:17:25,553 | server.py:495 | 

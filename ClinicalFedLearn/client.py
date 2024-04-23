@@ -37,11 +37,10 @@ model.compile(
 )
 
 if len(sys.argv) > 1:
-    X_train, X_val, y_train, y_val = load_partition(client_id) # if clientID exist
+    X_train, X_val, y_train, y_val = load_partition(int(sys.argv[1]))
 else:
     print("Not enough arguments... expecting python3 client.py PARTITION_NUMBER; where partition number is 0, 1, 2, 3")
     sys.exit()
-
 
 class FederatedClient(NumPyClient):
     def get_parameters(self, config):
@@ -83,12 +82,11 @@ class FederatedClient(NumPyClient):
     # Flower ClientApp
     app = ClientApp(
         client_fn=client_fn,
-        mods=[
-
-            fixedclipping_mod,
-        ],
+        ##mods=[x
+        ##  remove noise
+        ##    fixedclipping_mod,
+        ##],
     )
-
 
 if __name__ == '__main__':
     start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
