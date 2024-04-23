@@ -1,0 +1,136 @@
+myFlowerExperiment | INFO flwr 2024-04-23 22:30:24,143 | app.py:150 | Starting Flower server, config: num_rounds=10, no round_timeout
+myFlowerExperiment | INFO flwr 2024-04-23 22:30:24,154 | app.py:163 | Flower ECE: gRPC server running (10 rounds), SSL is disabled
+myFlowerExperiment | INFO flwr 2024-04-23 22:30:24,154 | server.py:92 | [INIT]
+myFlowerExperiment | INFO flwr 2024-04-23 22:30:24,154 | server.py:279 | Requesting initial parameters from one random client
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:14,453 | server.py:285 | Received initial parameters from one random client
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:14,453 | server.py:94 | Evaluating initial global parameters
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:14,863 | server.py:97 | initial parameters (loss, other metrics): 1.4650483131408691, {'accuracy': 0.27411168813705444}
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:14,863 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:14,863 | server.py:111 | [ROUND 1]
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:18,210 | server.py:224 | configure_fit: strategy sampled 2 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:25,346 | server.py:238 | aggregate_fit: received 2 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:33:25,347 | dp_fixed_clipping.py:318 | The number of clients returning parameters (2) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | WARNING flwr 2024-04-23 22:33:25,363 | fedavg.py:252 | No fit_metrics_aggregation_fn provided
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:25,415 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:25,841 | server.py:129 | fit progress: (1, 3.3891637325286865, {'accuracy': 0.3096446692943573}, 10.977273540998794)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:25,841 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:26,113 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:33:26,114 | fedavg.py:283 | No evaluate_metrics_aggregation_fn provided
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:26,114 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:26,114 | server.py:111 | [ROUND 2]
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:26,114 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:35,932 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:33:35,932 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:35,999 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:36,362 | server.py:129 | fit progress: (2, 6.353161334991455, {'accuracy': 0.22588832676410675}, 21.4989864579984)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:36,363 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:36,521 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:36,521 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:36,521 | server.py:111 | [ROUND 3]
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:36,521 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:46,480 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:33:46,480 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:46,545 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:46,910 | server.py:129 | fit progress: (3, 3.9405131340026855, {'accuracy': 0.3045685291290283}, 32.046382082999116)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:46,910 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:47,053 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:47,053 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:47,053 | server.py:111 | [ROUND 4]
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:47,053 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:56,776 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:33:56,777 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:56,840 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:57,207 | server.py:129 | fit progress: (4, 7.215191841125488, {'accuracy': 0.3578680157661438}, 42.343197207999765)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:57,207 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:57,359 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:57,359 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:57,359 | server.py:111 | [ROUND 5]
+myFlowerExperiment | INFO flwr 2024-04-23 22:33:57,359 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:07,798 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:34:07,798 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:07,855 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:08,209 | server.py:129 | fit progress: (5, 3.7896292209625244, {'accuracy': 0.494923859834671}, 53.34574170799897)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:08,209 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:08,359 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:08,359 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:08,359 | server.py:111 | [ROUND 6]
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:08,359 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,384 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:34:18,384 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,439 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,819 | server.py:129 | fit progress: (6, 9.445725440979004, {'accuracy': 0.398477166891098}, 63.95497145799891)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,819 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,976 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,976 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,976 | server.py:111 | [ROUND 7]
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:18,976 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,021 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:34:29,022 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,088 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,408 | server.py:129 | fit progress: (7, 4.297558307647705, {'accuracy': 0.42131978273391724}, 74.54425208299836)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,408 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,555 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,556 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,556 | server.py:111 | [ROUND 8]
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:29,556 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:39,438 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:34:39,439 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:39,505 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:39,863 | server.py:129 | fit progress: (8, 6.210009574890137, {'accuracy': 0.4010152220726013}, 84.99982483299937)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:39,864 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:40,015 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:40,015 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:40,015 | server.py:111 | [ROUND 9]
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:40,015 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:49,546 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:34:49,546 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:49,611 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:49,971 | server.py:129 | fit progress: (9, 6.968876361846924, {'accuracy': 0.4695431590080261}, 95.1071451659991)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:49,971 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:50,121 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:50,121 | server.py:110 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:50,121 | server.py:111 | [ROUND 10]
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:50,121 | server.py:224 | configure_fit: strategy sampled 3 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:59,722 | server.py:238 | aggregate_fit: received 3 results and 0 failures
+myFlowerExperiment | WARNING flwr 2024-04-23 22:34:59,723 | dp_fixed_clipping.py:318 | The number of clients returning parameters (3) differs from the number of sampled clients (4). This could impact the differential privacy guarantees, potentially leading to privacy leakage or inadequate noise calibration.
+myFlowerExperiment | INFO flwr 2024-04-23 22:34:59,777 | dp_fixed_clipping.py:338 | aggregate_fit: central DP noise with standard deviation: 0.075 added to parameters.
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,160 | server.py:129 | fit progress: (10, 7.609959602355957, {'accuracy': 0.3299492299556732}, 105.29613320799945)
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,160 | server.py:176 | configure_evaluate: strategy sampled 4 clients (out of 4)
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,313 | server.py:190 | aggregate_evaluate: received 4 results and 0 failures
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:487 | 
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:488 | [SUMMARY]
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:489 | Run finished 10 rounds in 105.45s
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:492 | History (loss, distributed):
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	('\tround 1: 2.2532684740704525\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 2: 2.66979813991108\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 3: 2.4843062721063034\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 4: 3.519371877563955\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 5: 0.8701672282991509\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 6: 2.760393397317946\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 7: 1.0664110477585411\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 8: 1.6211863652338965\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 9: 1.8200317544388853\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 10: 3.732282565030487\n')History (loss, centralized):
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	('\tround 0: 1.4650483131408691\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 1: 3.3891637325286865\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 2: 6.353161334991455\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 3: 3.9405131340026855\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 4: 7.215191841125488\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 5: 3.7896292209625244\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 6: 9.445725440979004\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 7: 4.297558307647705\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 8: 6.210009574890137\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 9: 6.968876361846924\n'
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	 '\tround 10: 7.609959602355957\n')History (metrics, centralized):
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	{'accuracy': [(0, 0.27411168813705444),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (1, 0.3096446692943573),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (2, 0.22588832676410675),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (3, 0.3045685291290283),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (4, 0.3578680157661438),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (5, 0.494923859834671),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (6, 0.398477166891098),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (7, 0.42131978273391724),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (8, 0.4010152220726013),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (9, 0.4695431590080261),
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,316 | server.py:494 | 	              (10, 0.3299492299556732)]}
+myFlowerExperiment | INFO flwr 2024-04-23 22:35:00,317 | server.py:495 | 
