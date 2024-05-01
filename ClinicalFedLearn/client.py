@@ -5,8 +5,8 @@ import numpy as np
 from flwr.client import start_numpy_client, NumPyClient
 import keras as ks
 
-from utils import load_partition
-from flwr.client import ClientApp, NumPyClient
+from utils import load_partition, read_img, get_labels
+from flwr.client import ClientApp
 from flwr.client.mod import fixedclipping_mod, secaggplus_mod
 
 # Make TensorFlow log less verbose
@@ -25,7 +25,8 @@ port_number = "8080"  # int(sys.argv[3])
 # python3 client.py 0 SERVER_IP_ADDRESS 8080
 
 model = ks.Sequential([
-    ks.layers.Flatten(input_shape=(IMG_SIZE, IMG_SIZE)),
+    ks.layers.Input(shape=(IMG_SIZE, IMG_SIZE)),
+    ks.layers.Flatten(),
     ks.layers.Dense(128, activation='relu'),
     ks.layers.Dense(4)
 ])
@@ -41,6 +42,7 @@ if len(sys.argv) > 1:
 else:
     print("Not enough arguments... expecting python3 client.py PARTITION_NUMBER; where partition number is 0, 1, 2, 3")
     sys.exit()
+
 
 class FederatedClient(NumPyClient):
     def get_parameters(self, config):
@@ -73,20 +75,31 @@ class FederatedClient(NumPyClient):
 
         return loss, len(X_val), {"accuracy": accuracy}
 
-    # Due to new version of flower framework, this shoud've implemented as an interface
-    def client_fn(cid: str):
-        """Create and return an instance of Flower `Client`."""
-        trainloader, testloader = load_partition(partition_id=int(cid))
-        return FederatedClient(trainloader, testloader).to_client()
 
-    # Flower ClientApp
-    app = ClientApp(
-        client_fn=client_fn,
-        ##mods=[x
-        ##  remove noise
-        ##    fixedclipping_mod,
-        ##],
-    )
+def predict_image(image_path, model):
+    img = read_img(image_path)  # Use the read_img function from utils.py
+    img = np.array(img) / 255.0  # Normalize the image
+    img = np.expand_dims(img, axis=0)  # Adjust shape for the model
+
+    # Predict using the model
+    predictions = model.predict(img)
+    predicted_label_index = np.argmax(predictions)
+    labels = get_labels()  # This should match the labels used during training
+    predicted_label = labels[predicted_label_index]
+    probability = np.max(predictions)
+
+    print(f"Predicted Label: {predicted_label}")
+    print(f"Probability: {probability:.2f}")
+
+    return predicted_label, probability
+
+
+def main():
+    image_path = 'data/Testing/glioma_tumor/image(1).jpg'  # Path to the image file
+    predicted_label, probability = predict_image(image_path, model)
+    # print(f"Label: {predicted_label}, Probability: {probability}")
+    start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
+
 
 if __name__ == '__main__':
-    start_numpy_client(server_address=f"{server_address}:{port_number}", client=FederatedClient())
+    main()
