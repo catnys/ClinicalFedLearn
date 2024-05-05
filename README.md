@@ -45,4 +45,4 @@ Recent updates have optimized model architectures and refined data handling, imp
 Ensure the `./data/` directory contains the necessary MRI images for training and testing.
 
 ## References
-Coral, G., Hait, J., Isaak, K., & Watkins, A. (n.d.). KyleIsaak/Federated_Medical_Machine_Learning: A project at Simon Fraser University under CMPT 340, focusing on a federated approach to medical machine learning using MRI data. [GitHub Repository](https://github.com/KyleIsaak/Federated_Medical_Machine_Learning/tree/main)
+Coral, G., Hait, J., Isaak, K., & Watkins, A. (n.d.). KyleIsaak/Federated_Medical_Machine_Learning: A project at Simon Fraser University under CMPT 340, focusing on a federated approach to medical machine learning using MRI data.
